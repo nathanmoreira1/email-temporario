@@ -1,9 +1,7 @@
-function App() {
-  return (
-    <div className="App">
+import Routes from "./routes/index";
 
-    </div>
-  );
+function App() {
+  return <Routes />;
 }
 
 export default App;
