@@ -1,17 +1,23 @@
-import { List, Typography } from '@mui/material'
-import EmailPreview from './EmailPreview'
+import { List, Typography } from "@mui/material";
+import EmailPreview from "./EmailPreview";
+import Loading from "../../../components/Loading";
 
-const EmailList = ({ emails, selectedEmail, setSelectedEmail }) => {
+const EmailList = ({
+  emails,
+  emailsLoading,
+  selectedEmail,
+  setSelectedEmail,
+}) => {
   return (
     <List
       sx={{
-        height: '100%',
-        overflowY: 'auto',
-        width: '30%',
-        borderRight: '1px solid rgba(0, 0, 0, .4)'
+        height: "100%",
+        overflowY: "auto",
+        width: "30%",
+        borderRight: "1px solid rgba(0, 0, 0, .4)",
       }}
     >
-      <Typography variant='h5' component='h2' sx={{ m: 2 }}>
+      <Typography variant="h5" component="h2" sx={{ m: 2 }}>
         Inbox
       </Typography>
       {emails.map((email, i) => (
@@ -26,8 +32,9 @@ const EmailList = ({ emails, selectedEmail, setSelectedEmail }) => {
           setSelectedEmail={setSelectedEmail}
         />
       ))}
+      {emailsLoading ? <Loading /> : null}
     </List>
-  )
-}
+  );
+};
 
-export default EmailList
+export default EmailList;

@@ -3,22 +3,22 @@ import {
   Typography,
   ListItemIcon,
   ListItem,
-  ListItemButton
-} from '@mui/material'
-import MailIcon from '@mui/icons-material/Mail'
+  ListItemButton,
+} from "@mui/material";
+import MailIcon from "@mui/icons-material/Mail";
 
 const EmailPreview = ({ id, email, title, description, setSelectedEmail }) => {
   return (
     <ListItem
       id={id}
       disablePadding
-      sx={[{ marginBottom: 1, backgroundColor: '#eee' }]}
+      sx={[{ marginBottom: 1, backgroundColor: "#eee" }]}
       onClick={() =>
         setSelectedEmail({
           email: email,
           title: title,
           description: description,
-          id: id
+          id: id,
         })
       }
     >
@@ -27,25 +27,25 @@ const EmailPreview = ({ id, email, title, description, setSelectedEmail }) => {
           <MailIcon />
         </ListItemIcon>
         <Grid>
-          <Typography variant='p' component='h3' mb={0.5} noWrap>
+          <Typography variant="p" component="h3" mb={0.5} noWrap>
             {email}
           </Typography>
           <Typography
-            variant='p'
-            component='p'
+            variant="p"
+            component="p"
             mb={0.2}
             fontWeight={600}
             noWrap
           >
             {title}
           </Typography>
-          <Typography variant='p' component='p' noWrap>
+          <Typography variant="p" component="p" noWrap>
             {description}
           </Typography>
         </Grid>
       </ListItemButton>
     </ListItem>
-  )
-}
+  );
+};
 
-export default EmailPreview
+export default EmailPreview;
