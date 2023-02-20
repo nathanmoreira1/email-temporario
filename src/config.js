@@ -1,5 +1,5 @@
 const config = {
-  actual_mode: "production",
+  actual_mode: "development",
   production: {
     comments:
       "Nesse estágio, é utilizado o proxy do cors-anywhere para evitar problemas de cors",
