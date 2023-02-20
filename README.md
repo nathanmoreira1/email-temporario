@@ -20,4 +20,4 @@ Você pode acessar o site já publicado a partir desse link: https://dropmail.ne
 - As consultas a API está separadas em um documento a parte, que é onde ficam os hooks.
 
 # Notas
-- É importante salientar que o projeto em produção possui uma quantidade limitada de requisições em decorrencia do proxy cors-anywhere, que impõe esse limite. Para utilizar o serviço de maneira ilimitada, clone o projeto e o rode localmente.
+- É importante salientar que o projeto em produção possui uma quantidade limitada de requisições em decorrencia do proxy cors-anywhere, que impõe esse limite. Para utilizar o serviço de maneira ilimitada, clone o projeto e o rode localmente da maneira especificada anteriormente.
