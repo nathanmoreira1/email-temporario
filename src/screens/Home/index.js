@@ -111,8 +111,8 @@ const Home = () => {
                 height: `65%`,
                 width: "100%",
               }}
-              border={1}
-              borderColor="rgba(0, 0, 0, .4)"
+              border={2}
+              borderColor="rgba(0, 0, 0, .7)"
               borderRadius={2}
             >
               <EmailList
@@ -133,4 +133,3 @@ const Home = () => {
 };
 
 export default Home;
-

@@ -36,7 +36,11 @@ const Header = ({
   return (
     <Grid container p={4} flexDirection="column">
       <Grid container justifyContent="center" mb={2}>
-        <Typography variant="h4" component="h4" style={{ opacity: 0.75 }}>
+        <Typography
+          variant="h3"
+          component="h4"
+          style={{ opacity: 0.75, fontWeight: 700 }}
+        >
           Temporary Email
         </Typography>
       </Grid>
