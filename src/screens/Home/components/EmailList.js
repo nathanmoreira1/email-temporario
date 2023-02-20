@@ -54,7 +54,7 @@ const EmailList = ({
             color: "rgba(0, 0, 0, .7)",
           }}
         >
-          Você não possui emails no momento.
+          You don't have emails at the moment.
         </Typography>
       )}
     </Box>
