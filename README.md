@@ -11,8 +11,10 @@ Esse projeto foi criado com a linguagem de programação Javascript, utilizando,
 
 # Onde acessar o deploy do projeto?
 
+Você pode acessar o site já publicado a partir desse link: https://dropmail.netlify.app/
+
 # Estrutura
 
-- Foi construido, no projeto, uma estrutura de rotas utilizando o React Router pois, embora o projeto possua uma única interface, isso facilita para que, no futuro, caso haja a necessidade de criação de outras, o setup inicial já esteja feito.
+- Foi construido, no projeto, uma estrutura de rotas utilizando o React Router pois, embora o projeto possua uma única interface, isso facilita para que, no futuro, caso haja a necessidade de criação de outras, o setup inicial já estará feito.
 - O projeto foi feito de maneira componentizada, seguindo a lógica de que é mais simples aplicar manutenção em componentes separados e, por isso, mais legíveis e simples de entender.
 - As consultas a API está separadas em um documento a parte, que é onde ficam os hooks.
