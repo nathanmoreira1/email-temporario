@@ -108,7 +108,7 @@ const Home = () => {
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                height: `70%`,
+                height: `65%`,
                 width: "100%",
               }}
               border={1}
