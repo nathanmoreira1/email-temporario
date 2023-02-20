@@ -12,7 +12,7 @@
 
 - Certifique-se de possuir o npm e o node baixado no seu computador antes de prosseguir.
 - Abra o projeto em um terminal e rode o comando "npm install" para instalar as dependências do projeto.
-- Agora, também em um terminal na raiz do projeto, rode o comando "num run proxy" para inicializar um servidor local na porta 8080 que irá interceptar as requisições para a api do dropmail. Ele nos ajudará a não ter problemas de cors no ambiente de desenvolvimento. 
+- Agora, também em um terminal na raiz do projeto, rode o comando "npm run proxy" para inicializar um servidor local na porta 8080 que irá interceptar as requisições para a api do dropmail. Ele nos ajudará a não ter problemas de cors no ambiente de desenvolvimento.
 - Abra outro terminal na raiz do projeto e rode o comando "npm start" para inicializar um servidor na porta 3000 com o projeto React.
 
 # Onde acessar o deploy do projeto?
@@ -27,6 +27,7 @@
 - As consultas a API estão separadas em um documento a parte, que são os hooks.
 
 # Notas
+
 - É importante salientar que o projeto em produção possui uma quantidade limitada de requisições em decorrencia do proxy cors-anywhere, que impõe esse limite. Para utilizar o serviço de maneira ilimitada, faça download do projeto e o rode localmente da maneira especificada anteriormente.
 - Caso você acesse o projeto rodando no netlify (https://dropmail.netlify.app) e passe por problemas de proxy (o site aprensentará uma mensagem de que o serviço está offline), entre nesse link (https://cors-anywhere.herokuapp.com/) e clique no botão "Request temporarily access", isso pode ajudar.
 - A chave da API que do dropmail que usei tambem está disponibilizada no arquivo .env desse projeto, visto que qualquer sequência de 8 caracteres pode ser usada como chave e, sendo assim, não há necessidade de torná-la secreta. Caso queira utilizar outra de sua escolha, basta entrar nesse arquvio e alterá-la para outra que também respeite a quantidade mínima de caracteres.
