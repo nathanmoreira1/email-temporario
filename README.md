@@ -18,3 +18,6 @@ Você pode acessar o site já publicado a partir desse link: https://dropmail.ne
 - Foi construido, no projeto, uma estrutura de rotas utilizando o React Router pois, embora o projeto possua uma única interface, isso facilita para que, no futuro, caso haja a necessidade de criação de outras, o setup inicial já estará feito.
 - O projeto foi feito de maneira componentizada, seguindo a lógica de que é mais simples aplicar manutenção em componentes separados e, por isso, mais legíveis e simples de entender.
 - As consultas a API está separadas em um documento a parte, que é onde ficam os hooks.
+
+# Notas
+- É importante salientar que o projeto em produção possui uma quantidade limitada de requisições em decorrencia do proxy cors-anywhere, que impõe esse limite. Para utilizar o serviço de maneira ilimitada, clone o projeto e o rode localmente.
