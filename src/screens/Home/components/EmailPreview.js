@@ -27,11 +27,11 @@ const EmailPreview = ({ id, email, title, description, setSelectedEmail }) => {
           <MailIcon />
         </ListItemIcon>
         <Grid>
-          <Typography variant="p" component="h3" mb={0.5} noWrap>
+          <Typography variant="body2" component="h3" mb={0.5} noWrap>
             {email}
           </Typography>
           <Typography
-            variant="p"
+            variant="body2"
             component="p"
             mb={0.2}
             fontWeight={600}
@@ -39,7 +39,7 @@ const EmailPreview = ({ id, email, title, description, setSelectedEmail }) => {
           >
             {title}
           </Typography>
-          <Typography variant="p" component="p" noWrap>
+          <Typography variant="body2" component="p" noWrap>
             {description}
           </Typography>
         </Grid>

@@ -5,9 +5,11 @@ import EmailDetails from "./components/EmailDetails";
 import Header from "./components/Header";
 import ErrorScreen from "./components/ErrorScreen";
 import useMail from "../../hooks/useMail";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Loading from "../../components/Loading";
 import useNotification from "../../hooks/useNotification";
+
+import "./styles.css";
 
 const Home = () => {
   const { introduceSession, querySession } = useMail();
@@ -19,6 +21,9 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [emailsLoading, setEmailsLoading] = useState(false);
   const [selectedEmail, setSelectedEmail] = useState();
+
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const initializeSession = async () => {
@@ -62,6 +67,18 @@ const Home = () => {
     initializeSession();
   }, []);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (header) {
+      const observer = new ResizeObserver((entries) => {
+        const height = entries[0].target.getBoundingClientRect().height;
+        setHeaderHeight(height);
+      });
+      observer.observe(header);
+      return () => observer.disconnect();
+    }
+  }, [headerRef.current]);
+
   const handleLoadNewEmails = async () => {
     setEmailsLoading(true);
     const { emails } = await querySession(sessionInformation.session_id);
@@ -84,32 +101,44 @@ const Home = () => {
         sessionInformation !== undefined &&
         !sessionInformation.error && (
           <>
-            <Header
-              currentEmail={sessionInformation.address}
-              handleLoadNewEmails={handleLoadNewEmails}
-              askNotificationPermission={askNotificationPermission}
-              setNotificationGranted={setNotificationGranted}
-              notificationGranted={notificationGranted}
-            />
-            <Grid
-              mt={1}
-              direction="row"
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                height: "calc(100vh - 350px)",
-                width: "100%",
-              }}
-              border={1}
-            >
-              <EmailList
-                emails={sessionInformation.emails}
-                selectedEmail={selectedEmail}
-                setSelectedEmail={setSelectedEmail}
-                emailsLoading={emailsLoading}
+            <Grid ref={headerRef}>
+              <Header
+                currentEmail={sessionInformation.address}
+                handleLoadNewEmails={handleLoadNewEmails}
+                askNotificationPermission={askNotificationPermission}
+                setNotificationGranted={setNotificationGranted}
+                notificationGranted={notificationGranted}
               />
-              <EmailDetails selectedEmail={selectedEmail} />
             </Grid>
+            {headerHeight ? (
+              <Grid
+                mt={1}
+                direction="row"
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  height: `calc(100vh - ${headerHeight + 40}px)`,
+                  width: "100%",
+                }}
+                className="email-grid"
+                border={1}
+                borderColor="rgba(0, 0, 0, .4)"
+                borderRadius={2}
+              >
+                <EmailList
+                  emails={sessionInformation.emails}
+                  selectedEmail={selectedEmail}
+                  setSelectedEmail={setSelectedEmail}
+                  emailsLoading={emailsLoading}
+                />
+                <EmailDetails
+                  selectedEmail={selectedEmail}
+                  setSelectedEmail={setSelectedEmail}
+                />
+              </Grid>
+            ) : (
+              <Loading />
+            )}
           </>
         )}
     </Container>

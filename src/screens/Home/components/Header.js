@@ -34,7 +34,7 @@ const Header = ({
   }, [count]);
 
   return (
-    <Grid container mt={5} p={2} flexDirection="column">
+    <Grid container p={2} flexDirection="column" sx={{ paddingTop: 5 }}>
       <Grid container justifyContent="center" mb={2}>
         <Typography variant="h4" component="h4" style={{ opacity: 0.75 }}>
           Temporary Email
@@ -48,35 +48,49 @@ const Header = ({
       >
         <Grid item style={{ width: "100%" }} p={2}>
           <Box border={1} p={2} borderColor="rgba(0, 0, 0, .6)">
-            {currentEmail}
+            <Typography variant="body2" component="p" noWrap>
+              {currentEmail}
+            </Typography>
           </Box>
         </Grid>
-        <Grid justifyContent="center" alignItems="center">
-          <Button variant="contained" color="primary" onClick={handleCopyClick}>
-            {isCopied ? "COPIED!" : "COPY"}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ marginLeft: 2, marginRight: 2 }}
-            onClick={() => handleLoadNewEmails()}
-          >
-            REFRESH
-          </Button>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: notificationGranted ? "green" : "888",
-            }}
-            onClick={async () => {
-              const granted = await askNotificationPermission();
-              granted
-                ? setNotificationGranted(true)
-                : setNotificationGranted(false);
-            }}
-          >
-            {notificationGranted ? "NOTIFICATIONS ON" : "NOTIFICATIONS OFF"}
-          </Button>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ width: "100%" }}
+              onClick={handleCopyClick}
+            >
+              {isCopied ? "COPIED!" : "COPY"}
+            </Button>
+          </Grid>
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ width: "100%" }}
+              onClick={() => handleLoadNewEmails()}
+            >
+              REFRESH
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={4} md={3} lg={2} xl={2}>
+            <Button
+              variant="contained"
+              sx={{
+                width: "100%",
+                backgroundColor: notificationGranted ? "green" : "#888",
+              }}
+              onClick={async () => {
+                const granted = await askNotificationPermission();
+                granted
+                  ? setNotificationGranted(true)
+                  : setNotificationGranted(false);
+              }}
+            >
+              {notificationGranted ? "NOTIFICATIONS ON" : "NOTIFICATIONS OFF"}
+            </Button>
+          </Grid>
         </Grid>
         <Typography
           variant="body2"

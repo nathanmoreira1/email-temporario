@@ -2,14 +2,13 @@ import env from "react-dotenv";
 
 const AUTH_TOKEN = env.AUTH_TOKEN;
 const API_URL = `http://localhost:8080/proxy/api/graphql/${AUTH_TOKEN}`;
-const PROXY_URL = "";
 
 const useMail = () => {
   const introduceSession = async () => {
     const query =
       "mutation {introduceSession {id, expiresAt, addresses {address}}}";
     const request = await fetch(
-      `${PROXY_URL}${API_URL}?query=${encodeURIComponent(query)}`,
+      `${API_URL}?query=${encodeURIComponent(query)}`,
       {
         headers: {
           Accept: "application/json",
@@ -35,7 +34,7 @@ const useMail = () => {
 
   const querySession = async (session_id) => {
     const query = `query%20(%24id%3A%20ID!)%20%7Bsession(id%3A%24id)%20%7B%20addresses%20%7Baddress%7D%2C%20mails%7BrawSize%2C%20fromAddr%2C%20toAddr%2C%20downloadUrl%2C%20text%2C%20headerSubject%7D%7D%20%7D&variables=%7B%22id%22%3A%22${session_id}%22%7D`;
-    const request = await fetch(`${PROXY_URL}${API_URL}?query=${query}`, {
+    const request = await fetch(`${API_URL}?query=${query}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
