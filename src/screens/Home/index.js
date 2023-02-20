@@ -5,7 +5,7 @@ import EmailDetails from "./components/EmailDetails";
 import Header from "./components/Header";
 import ErrorScreen from "./components/ErrorScreen";
 import useMail from "../../hooks/useMail";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import useNotification from "../../hooks/useNotification";
 
@@ -84,7 +84,7 @@ const Home = () => {
       style={{
         height: "100vh",
         overflow: "auto",
-        paddingBottom: 30,
+        paddingBottom: 50,
       }}
     >
       {loading && <Loading />}
@@ -111,7 +111,6 @@ const Home = () => {
                 height: `70%`,
                 width: "100%",
               }}
-              className="email-grid"
               border={1}
               borderColor="rgba(0, 0, 0, .4)"
               borderRadius={2}
@@ -134,3 +133,4 @@ const Home = () => {
 };
 
 export default Home;
+

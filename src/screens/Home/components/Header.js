@@ -20,7 +20,7 @@ const Header = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (count == 1) {
+      if (count === 1) {
         handleLoadNewEmails();
       }
       if (count >= 1) {
@@ -31,7 +31,7 @@ const Header = ({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [count]);
+  }, [count, handleLoadNewEmails]);
 
   return (
     <Grid container p={4} flexDirection="column">
