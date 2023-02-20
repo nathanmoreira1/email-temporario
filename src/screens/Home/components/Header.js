@@ -34,7 +34,7 @@ const Header = ({
   }, [count]);
 
   return (
-    <Grid container p={2} flexDirection="column" sx={{ paddingTop: 5 }}>
+    <Grid container p={4} flexDirection="column">
       <Grid container justifyContent="center" mb={2}>
         <Typography variant="h4" component="h4" style={{ opacity: 0.75 }}>
           Temporary Email
@@ -46,8 +46,13 @@ const Header = ({
         alignItems="center"
         flexDirection="column"
       >
-        <Grid item style={{ width: "100%" }} p={2}>
-          <Box border={1} p={2} borderColor="rgba(0, 0, 0, .6)">
+        <Grid maxWidth="lg" item style={{ width: "100%" }} p={2}>
+          <Box
+            border={1}
+            p={2}
+            borderColor="rgba(0, 0, 0, .3)"
+            borderRadius={2}
+          >
             <Typography variant="body2" component="p" noWrap>
               {currentEmail}
             </Typography>

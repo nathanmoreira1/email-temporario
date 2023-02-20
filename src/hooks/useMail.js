@@ -1,7 +1,17 @@
 import env from "react-dotenv";
+import config from "../config";
 
 const AUTH_TOKEN = env.AUTH_TOKEN;
-const API_URL = `http://localhost:8080/proxy/api/graphql/${AUTH_TOKEN}`;
+
+const PROXY_URL =
+  config.actual_mode === "production"
+    ? config.production.proxy_url
+    : config.development.proxy_url;
+
+const API_URL =
+  config.actual_mode === "production"
+    ? `${PROXY_URL}/https://dropmail.me/api/graphql/${AUTH_TOKEN}`
+    : `${PROXY_URL}/api/graphql/${AUTH_TOKEN}`;
 
 const useMail = () => {
   const introduceSession = async () => {

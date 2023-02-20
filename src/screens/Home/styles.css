@@ -11,32 +11,6 @@
     width: 70%;
 }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: opacity 300ms, transform 300ms;
-}
-
-.fade-in-enter {
-    opacity: 0;
-    transform: translateY(-50px);
-}
-
-.fade-in-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in-exit {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in-exit-active {
-    opacity: 0;
-    transform: translateY(-50px);
-}
-
 @media (min-width: 600px) and (max-width: 1100px) {
     .emails-list {
         width: 50%;

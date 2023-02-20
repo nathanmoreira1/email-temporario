@@ -21,9 +21,11 @@ const EmailDetails = ({ selectedEmail, setSelectedEmail }) => {
             <Typography variant="h5" component="h2" sx={{ m: 2 }}>
               {selectedEmail.title}
             </Typography>
-            <Typography variant="body1" sx={{ m: 2, whiteSpace: "nowrap" }}>
-              {selectedEmail.description}
-            </Typography>
+            <pre>
+              <Typography variant="body1" sx={{ m: 2 }}>
+                {selectedEmail.description}
+              </Typography>
+            </pre>
             <IconButton
               sx={{
                 position: "absolute",
